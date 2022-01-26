@@ -31,7 +31,7 @@ public class ScrollingBackground : MonoBehaviour
     IEnumerator ShiftBackground() 
     {
         yield return new WaitForSeconds(1.25f);
-        transform.Translate(Vector3.left * 40);
+        transform.Translate(Vector3.left * 150);
         yield return new WaitForSeconds(0.25f);
     }
 
