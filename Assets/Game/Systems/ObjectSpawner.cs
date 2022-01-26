@@ -53,8 +53,11 @@ public class ObjectSpawner : MonoBehaviour
 
     float GenerateConstrainedRandomPosition(float lastHeight) 
     {
-        float randomHeight = Random.Range(lastHeight-ColumnHeightDeviation/2,
-            lastHeight + ColumnHeightDeviation/2);
+        float randomHeight = Random.Range
+            (Mathf.Clamp
+            (lastHeight-ColumnHeightDeviation/2,ColumnMin,ColumnMax),
+            Mathf.Clamp
+            (lastHeight + ColumnHeightDeviation/2,ColumnMin,ColumnMax));
         return randomHeight;
     }
 }
