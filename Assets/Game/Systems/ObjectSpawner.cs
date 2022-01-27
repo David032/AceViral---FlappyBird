@@ -9,6 +9,7 @@ public class ObjectSpawner : MonoBehaviour
     public int InitialPillars = 5;
     public GameObject ColumnsHolder;
 
+    GameController Controller;
     float ColumnMin = 4;
     float ColumnMax = 8.5f;
     float ColumnSpacing = 5;
@@ -18,6 +19,7 @@ public class ObjectSpawner : MonoBehaviour
 
     void Start()
     {
+        Controller = GetComponent<GameController>();
         NextPosition = StartPosition;
         float randomHeight;
         for (int i = 0; i < InitialPillars; i++)
@@ -59,5 +61,13 @@ public class ObjectSpawner : MonoBehaviour
             Mathf.Clamp
             (lastHeight + ColumnHeightDeviation/2,ColumnMin,ColumnMax));
         return randomHeight;
+    }
+
+    //Last minute difficulty curve
+    public void IncreaseDifficulty() 
+    {
+        ColumnMin = 2;
+        ColumnMax = 10;
+        ColumnHeightDeviation = 2f;
     }
 }

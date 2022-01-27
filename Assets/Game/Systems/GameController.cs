@@ -25,7 +25,13 @@ public class GameController : MonoBehaviour
         }
         score += 1;
         ScoreText.text = "Score: " + score.ToString();
+        if (score == 15)
+        {
+            GetComponent<ObjectSpawner>().IncreaseDifficulty();
+        }
     }
+
+    public int GetScore() { return score; }
 
     #region Buttons
     public void PlayAgain() 
